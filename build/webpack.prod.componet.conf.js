@@ -12,11 +12,11 @@ const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 
 const env = require('../config/prod.env')
 
+// 整理入口
+const components = require('../components.json');
 
 const webpackConfig = merge(baseWebpackConfig, {
-  entry: {
-    index: ['./src/index.js']
-  },
+  entry: components,
   module: {
     rules: utils.styleLoaders({
       sourceMap: config.build.productionSourceMap,
@@ -27,11 +27,11 @@ const webpackConfig = merge(baseWebpackConfig, {
   devtool: config.build.productionSourceMap ? config.build.devtool : false,
   output: {
     path: config.build.assetsRoot,
-    filename: 'index.js',
-    chunkFilename: '[id].js',
-    library: 'BoUI', //library 指定的是你require时候的模块名。 这里便是require('BoUI')
-    libraryTarget: 'umd', // 我们使用umd方式，这样便可以用任何一种引入方式，即支持cmd，amd，及全局
+    filename: '[name].js',
     umdNamedDefine: true,
+    // 在 output.libraryTarget 为 commonjs2 时，配置 output.library 将没有意义。
+    // require('library-name-in-npm');
+    libraryTarget: 'commonjs2'
   },
   plugins: [
     // http://vuejs.github.io/vue-loader/en/workflow/production.html

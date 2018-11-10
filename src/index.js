@@ -1,7 +1,9 @@
-import MarkdownRun from './components/mardownRun';
+import MarkdownRun from './components/markdownRun';
+import TT from './components/tt';
 
 const components = [
-  MarkdownRun
+  MarkdownRun,
+  TT
 ];
 
 const install = (Vue) => {
@@ -17,5 +19,6 @@ if (typeof window !== 'undefined' && window.Vue) {
 
 export default {
   MarkdownRun,
+  TT,
   install
 };
