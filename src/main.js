@@ -1,7 +1,7 @@
-import HelloWorld from './components/HelloWorld.vue';
+import MarkdownRun from './components/mardownRun';
 
 const components = [
-  HelloWorld
+  MarkdownRun
 ];
 
 const install = (Vue) => {
@@ -16,6 +16,6 @@ if (typeof window !== 'undefined' && window.Vue) {
 }
 
 export default {
-  HelloWorld,
+  MarkdownRun,
   install
 };
