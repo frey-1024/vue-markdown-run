@@ -1,16 +1,21 @@
 <template>
-  <markdown-run></markdown-run>
+  <markdown-run :mark="markdownTxt"></markdown-run>
 </template>
 
 <script>
-
-// import { MarkdownRun } from '../../lib/index';
-
+import {zkFetch} from './fetch.js';
 export default {
-//  components: {MarkdownRun},
   name: 'Sample',
   data () {
-    return {};
+    return {
+      markdownTxt: ''
+    };
+  },
+  created () {
+    // 本地获取一个md文本，你可以用其他方式
+    zkFetch('http://localhost:9090/article/33/detail').get().then((data) => {
+      this.markdownTxt = data.data.markdown;
+    });
   }
 };
 </script>
