@@ -1,6 +1,6 @@
 {
   "name": "vue-markdown-run",
-  "version": "1.0.21",
+  "version": "1.0.3",
   "description": "vue-markdown-run",
   "author": "zhangkun <1766597067@qq.com>",
   "main": "lib/index.js",

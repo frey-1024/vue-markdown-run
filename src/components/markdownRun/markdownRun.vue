@@ -34,7 +34,10 @@ export default {
     };
   },
   created () {
-    require(`highlight.js/styles/${this.highlightStyleFileName}.css`);
+    const linkEl = document.createElement('link');
+    linkEl.href = `https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/${this.highlightStyleFileName}.min.css`;
+    linkEl.rel = 'stylesheet';
+    document.head.appendChild(linkEl);
     // 初始化marked, 配置选项，并集成highlight
     const renderer = new marked.Renderer();
     marked.setOptions({
@@ -185,6 +188,8 @@ export default {
 
 <style lang="scss">
   .vue-markdown-run{
+    margin-top: 15px;
+    margin-bottom: 15px;
     border: 1px solid #ebebeb;
     border-radius: 3px;
     transition: .2s;
