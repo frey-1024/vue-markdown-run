@@ -34,10 +34,7 @@ export default {
     };
   },
   created () {
-    const linkEl = document.createElement('link');
-    linkEl.href = `https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/${this.highlightStyleFileName}.min.css`;
-    linkEl.rel = 'stylesheet';
-    document.head.appendChild(linkEl);
+    this.addHighlightClassFile();
     // 初始化marked, 配置选项，并集成highlight
     const renderer = new marked.Renderer();
     marked.setOptions({
@@ -62,6 +59,19 @@ export default {
     }
   },
   methods: {
+    addHighlightClassFile () {
+      // 先检查是否已经导入
+      const id = `${this.highlightStyleFileName}-min-css`;
+      let linkEl = document.getElementById(id);
+      if (linkEl) {
+        return;
+      }
+      linkEl = document.createElement('link');
+      linkEl.href = `https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/${this.highlightStyleFileName}.min.css`;
+      linkEl.rel = 'stylesheet';
+      linkEl.id = id;
+      document.head.appendChild(linkEl);
+    },
     parserMark (val) {
       // 不处理为空或者不是string类型的数据
       if (val === '' || typeof val !== 'string') {
@@ -154,6 +164,7 @@ export default {
       // 普通文本，不需要特殊处理
       if (!item.code && item.template) {
         return h(Extend, {
+          class: `markdown-common`,
           props: {
             value: item.template
           },
