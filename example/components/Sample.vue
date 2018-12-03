@@ -1,5 +1,8 @@
 <template>
-  <markdown-run :mark="markdownTxt"></markdown-run>
+  <markdown-run
+    :mark="markdownTxt"
+    highlight-style-file-name="github"
+  />
 </template>
 
 <script>
@@ -20,5 +23,5 @@ export default {
 };
 </script>
 
-<style scoped>
+<style>
 </style>

@@ -7,7 +7,6 @@ import compiler from './compiler';
 import Preview from './preview';
 import Extend from './extend';
 import {codeMarkRunAllRE, codeRE} from './reg';
-import 'highlight.js/styles/github.css';
 
 export default {
   name: 'MarkdownRun',
@@ -23,6 +22,10 @@ export default {
     runStyle: {
       type: Object,
       default: () => {}
+    },
+    highlightStyleFileName: {
+      type: String,
+      default: 'github'
     }
   },
   data () {
@@ -31,6 +34,7 @@ export default {
     };
   },
   created () {
+    require(`highlight.js/styles/${this.highlightStyleFileName}.css`);
     // 初始化marked, 配置选项，并集成highlight
     const renderer = new marked.Renderer();
     marked.setOptions({
@@ -42,6 +46,7 @@ export default {
       sanitize: false,
       smartLists: true,
       smartypants: false,
+      langPrefix: 'hljs lang-',
       highlight: function (code) {
         return hljs.highlightAuto(code).value;
       }
@@ -179,28 +184,6 @@ export default {
 </script>
 
 <style lang="scss">
-  .aa{
-    color: #24292e;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-    font-size: 16px;
-    line-height: 1.5;
-    word-wrap: break-word;
-  }
-  .language-javascript {
-    display: block;
-    overflow-x: auto;
-    padding: 0.5em;
-    color: #333;
-    background: #f8f8f8;
-  }
-  pre{
-    padding: 16px;
-    overflow: auto;
-    font-size: 85%;
-    line-height: 1.45;
-    background-color: #f6f8fa;
-    border-radius: 3px;
-  }
   .vue-markdown-run{
     border: 1px solid #ebebeb;
     border-radius: 3px;

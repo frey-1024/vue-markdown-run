@@ -1,10 +1,13 @@
 {
   "name": "vue-markdown-run",
-  "version": "1.0.0",
-  "description": "A Vue.js project",
+  "version": "1.0.2",
+  "description": "vue-markdown-run",
   "author": "zhangkun <1766597067@qq.com>",
-  "private": true,
   "main": "lib/index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zhangKunUserGit/vue-markdown-run"
+  },
   "scripts": {
     "dev": "webpack-dev-server --inline --progress --config build/webpack.example.conf.js",
     "start": "npm run dev",
