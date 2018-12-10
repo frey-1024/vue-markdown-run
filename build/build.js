@@ -6,6 +6,7 @@ process.env.NODE_ENV = 'production'
 const ora = require('ora')
 const rm = require('rimraf')
 const path = require('path')
+var fs = require('fs');
 const chalk = require('chalk')
 const webpack = require('webpack')
 const config = require('../config')
@@ -50,7 +51,7 @@ rm(path.join(config.build.assetsRoot, config.build.assetsSubDirectory), err => {
       console.log(chalk.red('  Build components failed with errors.\n'))
       process.exit(1)
     }
-
+    fs.writeFileSync(path.resolve(__dirname, '../lib/theme/base.css'), 'a{}');
     console.log(chalk.cyan('  Build components complete.\n'))
-  })
+  });
 })

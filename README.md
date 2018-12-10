@@ -47,6 +47,21 @@ npm install babel-plugin-component -save-dev
 }
 ```
 
+接下来，如果你只需引入部分组件，写入以下内容：
+
+```
+import { MarkdownRun } from 'vue-markdown-run';
+
+export default {
+  components: {
+    MarkdownRun
+  }
+}
+
+```
+
+### 组件的用法
+
 ```html
  <markdown-run
     :mark="markdownTxt"
