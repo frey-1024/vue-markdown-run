@@ -2,6 +2,10 @@
 
 > 一个vue组件，用于markdown 文档中Vue代码执行，可以边看边执行。
 
+### DEMO
+
+https://zhangkunusergit.github.io/vue-markdown-run/dist
+
 ### 安装
 
 ``` bash
@@ -24,6 +28,7 @@ npm install vue-markdown-run --save
 | 参数 | 值 | 默认值 | 说明 |
 | ------ | ------ | ------ | ------ |
 | :mark | 必传(String) | 无 | markdown文本字符串(具体要求请看下面的“markdownTxt 写法要求”) |
+| :scope | 非(Object) | 无 | markdown文本中，引入的组件，如果不想全局引入，可以局部引入，用法请看上面的DEMO|
 | highlight-style-file-name | 非(String) | 'github' | markdown代码部分样式文件名，此处是指定引入那种样式（css）文件 详细请参考：https://highlightjs.org/static/demo/ 中Styles |
 | :runClass | 非(String) | 无 | Vue运行代码处的css样式名称 |
 | :runStyle | 非(Object) | 无 | Vue运行代码处的行间样式名称 |
@@ -60,7 +65,7 @@ vue-run 放在语言类型后面，需要空格，例如：
 </style>
 ```
 
-### DEMO
+### 静态DEMO
 markdown 文本
 
 ![avatar](code.png)
