@@ -13,6 +13,39 @@ npm install vue-markdown-run --save
 ```
 
 ### 用法
+#### (1)完整引入
+
+```javascript
+// 引入
+import MarkdownRun from 'vue-markdown-run';
+// 全局注入
+Vue.use(MarkdownRun);
+```
+
+#### (2)按需引入
+借助 [babel-plugin-component](https://github.com/ElementUI/babel-plugin-component)，我们可以只引入需要的组件，以达到减小项目体积的目的。
+
+首先，安装 babel-plugin-component：
+
+```
+npm install babel-plugin-component -save-dev
+```
+
+然后，将 .babelrc 修改为：
+
+```
+{
+  "plugins": [
+    [
+      "component",
+      {
+        "libraryName": "vue-markdown-run",
+        "styleLibraryName": "theme"
+      }
+    ]
+  ]
+}
+```
 
 ```html
  <markdown-run

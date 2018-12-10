@@ -1,4 +1,4 @@
-import MarkdownRun from './components/markdownRun';
+import MarkdownRun from './components/markdown-run';
 
 const components = [
   MarkdownRun
