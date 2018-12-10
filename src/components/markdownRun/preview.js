@@ -38,9 +38,8 @@ export default {
       this.codeEl = document.createElement('div');
       container.appendChild(this.codeEl);
       try {
-        const parent = this;
-        this.codeVM = new Vue({ parent, ...val }).$mount(this.codeEl);
-
+        const MyComponent = Vue.extend({ ...val });
+        this.codeVM = new MyComponent().$mount(this.codeEl);
         if (lastData) {
           for (const key in lastData) {
             this.codeVM[key] = lastData[key];

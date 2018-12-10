@@ -11,6 +11,7 @@ import {codeMarkRunAllRE, codeRE} from './reg';
 export default {
   name: 'MarkdownRun',
   props: {
+    scope: Object,
     mark: {
       type: String,
       required: true
@@ -149,7 +150,7 @@ export default {
       const compiledCode = compiler(result, this.scope);
       // 编译失败
       if (compiledCode.error) {
-        this.$emit('error', result.error);
+        this.$emit('error', compiledCode.error);
         return;
       }
       return {
