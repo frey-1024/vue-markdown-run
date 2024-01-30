@@ -4,7 +4,7 @@
 
 ### DEMO
 
-https://zhangkunusergit.github.io/vue-markdown-run/dist
+[https://zhangkunusergit.github.io/vue-markdown-run/dist](https://frey-1024.github.io/vue-markdown-run/dist/#/)
 
 ### 安装
 
